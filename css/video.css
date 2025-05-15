@@ -1,0 +1,34 @@
+body {
+  margin: 0;
+  background-color: #000;
+  color: #00ff41;
+  font-family: 'Courier New', Courier, monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+}
+
+h1 {
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: 2rem;
+  text-shadow: 0 0 10px #00ff41;
+}
+
+iframe {
+  border: 2px solid #00ff41;
+  box-shadow: 0 0 20px #00ff41;
+  width: 80vw;
+  height: 45vw;
+  max-width: 960px;
+  max-height: 540px;
+}
+
+@media screen and (max-width: 600px) {
+  iframe {
+    width: 90vw;
+    height: 50vw;
+  }
+}

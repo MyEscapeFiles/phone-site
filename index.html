@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Terminal Hacker</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Sécurité minimale si CSS externe non chargé */
+    body {
+      margin: 0;
+      font-family: 'Courier New', Courier, monospace;
+    }
+  </style>
+</head>
+<body>
+  <!-- Fond Matrix -->
+  <canvas id="matrix"></canvas>
+
+  <!-- ✅ Transition -->
+  <div id="transition" class="hidden">
+    <div id="hackText">Piratage du téléphone en cours...</div>
+  </div>
+
+  <!-- Formulaire de saisie -->
+  <div class="content">
+    <h1>Quel numéro de téléphone souhaitez-vous pirater ?</h1>
+    <input type="text" id="phoneInput" placeholder="Entrez un numéro ici...">
+    <button id="validateBtn">Valider</button>
+    <div id="message"></div>
+  </div>
+
+  <!-- ✅ Redimensionnement automatique du canvas Matrix -->
+  <script>
+    const canvas = document.getElementById('matrix');
+    window.addEventListener("resize", () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+  </script>
+
+  <!-- ✅ JavaScript principal -->
+  <script src="js/script.js"></script>
+</body>
+</html>

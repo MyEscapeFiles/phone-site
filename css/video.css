@@ -1,0 +1,65 @@
+/* === BASE === */
+body {
+  margin: 0;
+  padding: 20px;
+  background-color: #000;
+  color: #00ff41;
+  font-family: 'Courier New', Courier, monospace;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* === TITRE === */
+h1 {
+  margin-bottom: 30px;
+  font-size: 2rem;
+  text-shadow: 0 0 10px #00ff41;
+}
+
+/* === CONTAINER POUR IFRAME RESPONSIVE === */
+.video-container {
+  width: 90%;
+  max-width: 960px;
+  aspect-ratio: 16 / 9;
+  border: 2px solid #00ff41;
+  box-shadow: 0 0 20px #00ff41;
+}
+
+/* === IFRAME === */
+iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* === BOUTON RETOUR === */
+.back-btn {
+  margin-top: 30px;
+  padding: 10px 20px;
+  background-color: #000;
+  color: #00ff41;
+  border: 1px solid #00ff41;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  text-shadow: 0 0 5px #00ff41;
+  box-shadow: 0 0 10px #00ff41;
+  transition: background 0.2s ease;
+}
+
+.back-btn:hover {
+  background-color: #00ff41;
+  color: #000;
+}
+
+/* === RESPONSIVE TITRE === */
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+}

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 /* ------------------ BASE ------------------ */
 body, html {
   margin: 0;
@@ -29,15 +30,32 @@ canvas#matrix {
   align-items: center;
   text-align: center;
   padding: 0 20px;
+  gap: 20px;
 }
 
+/* ✅ Titre avec effet terminal */
 h1 {
+  font-family: 'VT323', monospace;
   font-size: 3rem;
   text-shadow: 0 0 10px #00ff41;
-  margin-bottom: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid #00ff41;
+  animation: typing 3s steps(30, end), blink-caret 0.75s step-end infinite;
+  max-width: 100%;
 }
 
-/* ✅ Input responsive */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #00ff41; }
+}
+
+/* ✅ Input animé */
 input[type="text"] {
   background-color: #000;
   color: #00ff41;
@@ -50,24 +68,55 @@ input[type="text"] {
   outline: none;
   caret-color: #00ff41;
   box-shadow: 0 0 15px #00ff41;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+input[type="text"]:focus {
+  background-color: #010;
+  animation: pulse 1s infinite alternate;
+  box-shadow: 0 0 25px #00ff41, inset 0 0 5px #00ff41;
+}
+
+@keyframes pulse {
+  from { box-shadow: 0 0 10px #00ff41, inset 0 0 2px #00ff41; }
+  to   { box-shadow: 0 0 25px #00ff41, inset 0 0 8px #00ff41; }
 }
 
 input[type="text"]::placeholder {
   color: #00ff41a0;
 }
 
-/* ✅ Bouton responsive */
 button {
   margin-top: 15px;
-  padding: 10px 20px;
+  padding: 14px 28px;
   background-color: #000;
   border: 1px solid #00ff41;
   color: #00ff41;
-  font-size: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
   cursor: pointer;
-  border-radius: 4px;
-  box-shadow: 0 0 10px #00ff41;
+  border-radius: 6px;
+  box-shadow: 0 0 15px #00ff41;
+  animation: bounce 2s infinite;
+  transition: all 0.3s ease-in-out;
 }
+
+button:hover {
+  background-color: #002d00;
+  box-shadow: 0 0 25px #00ff41;
+  transform: scale(1.05);
+}
+
+/* Animation bounce */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
 
 /* ✅ Message d’erreur */
 #message {
@@ -105,6 +154,7 @@ button {
   50% { opacity: 0.5; }
 }
 
+/* ------------------ UTILITAIRES ------------------ */
 .hidden {
   display: none !important;
 }

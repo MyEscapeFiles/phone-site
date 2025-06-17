@@ -44,7 +44,7 @@ window.addEventListener('DOMContentLoaded', () => {
     message.textContent = "";
 
     if (!/^\d+$/.test(value)) return message.textContent = "Ceci n'est pas un numéro de téléphone.";
-    if (value !== "0783991007") return message.textContent = "Ce téléphone est introuvable.";
+    if (value !== "0684125937") return message.textContent = "Ce téléphone est introuvable.";
 
     content.style.display = 'none';
     transition.classList.remove('hidden');
@@ -52,5 +52,4 @@ window.addEventListener('DOMContentLoaded', () => {
 
     setTimeout(() => window.location.href = "video.html", 2500);
   });
-
 });

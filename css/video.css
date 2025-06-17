@@ -1,65 +1,154 @@
-/* === BASE === */
-body {
-  margin: 0;
-  padding: 20px;
-  background-color: #000;
+/* ------------------ IMPORT POLICE HACKER ------------------ */
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+/* ------------------ BASE ------------------ */
+* {
+  box-sizing: border-box;
+  font-family: 'VT323', monospace;
   color: #00ff41;
-  font-family: 'Courier New', Courier, monospace;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: #000;
+  font-size: 18px;
+  text-shadow: 0 0 4px #00ff41;
+  overflow: hidden;
+}
+
+/* ------------------ FOND MATRIX ------------------ */
+canvas#matrix {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+/* ------------------ CONTENU ------------------ */
+.content {
+  position: relative;
+  z-index: 1;
+  height: 100vh;
+  padding: 40px 20px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  min-height: 100vh;
   text-align: center;
-  box-sizing: border-box;
+  gap: 40px; /* espace régulier entre les blocs */
 }
 
-/* === TITRE === */
+/* ------------------ TITRE ------------------ */
 h1 {
-  margin-bottom: 30px;
-  font-size: 2rem;
+  font-size: 2.3rem;
   text-shadow: 0 0 10px #00ff41;
+  border-bottom: 1px solid #00ff41;
+  padding-bottom: 10px;
+  margin: 0;
 }
 
-/* === CONTAINER POUR IFRAME RESPONSIVE === */
+/* ------------------ VIDEO ------------------ */
 .video-container {
   width: 90%;
   max-width: 960px;
   aspect-ratio: 16 / 9;
-  border: 2px solid #00ff41;
   box-shadow: 0 0 20px #00ff41;
+  border: 2px solid #00ff41;
+  border-radius: 10px;
 }
 
-/* === IFRAME === */
-iframe {
+.video-container iframe {
   width: 100%;
   height: 100%;
   border: none;
+  border-radius: 10px;
+  display: block;
 }
 
-/* === BOUTON RETOUR === */
-.back-btn {
-  margin-top: 30px;
-  padding: 10px 20px;
-  background-color: #000;
-  color: #00ff41;
+/* ------------------ BOUTON ------------------ */
+button {
+  padding: 12px 24px;
+  background-color: transparent;
   border: 1px solid #00ff41;
-  border-radius: 5px;
-  font-size: 1rem;
+  color: #00ff41;
+  font-size: 1.1rem;
+  border-radius: 6px;
   cursor: pointer;
-  text-shadow: 0 0 5px #00ff41;
-  box-shadow: 0 0 10px #00ff41;
-  transition: background 0.2s ease;
+  box-shadow: 0 0 12px #00ff41;
+  transition: all 0.25s ease-in-out;
 }
 
-.back-btn:hover {
-  background-color: #00ff41;
-  color: #000;
+button:hover {
+  background-color: #002d00;
+  box-shadow: 0 0 25px #00ff41;
+  transform: scale(1.05);
 }
 
-/* === RESPONSIVE TITRE === */
+/* ------------------ MESSAGE D’ERREUR ------------------ */
+#message {
+  margin-top: 20px;
+  font-size: 1.1rem;
+  color: red;
+  text-shadow: 0 0 5px red;
+}
+
+/* ------------------ TRANSITION HACK ------------------ */
+#transition {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.96);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #00ff41;
+  font-family: 'Courier New', Courier, monospace;
+  padding: 20px;
+}
+
+#hackText {
+  font-size: 2.5rem;
+  text-align: center;
+  text-shadow: 0 0 15px #00ff41;
+  animation: blink 1s infinite;
+}
+
+/* CLIGNOTEMENT */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* ------------------ UTILITAIRES ------------------ */
+.hidden {
+  display: none !important;
+}
+
+.blink {
+  animation: blink 0.4s step-start 5;
+}
+
+/* ------------------ RESPONSIVE ------------------ */
 @media screen and (max-width: 600px) {
   h1 {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
+  }
+
+  #hackText {
+    font-size: 1.6rem;
+  }
+
+  .video-container {
+    width: 100%;
+  }
+
+  button {
+    width: 100%;
+    max-width: 300px;
   }
 }

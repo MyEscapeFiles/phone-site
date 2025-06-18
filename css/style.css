@@ -37,7 +37,7 @@ h1 {
   font-family: 'VT323', monospace;
   font-size: 3rem;
   color: #00ff41;
-  text-shadow: 0 0 8px #00ff41;
+  text-shadow: 0 0 4px #00ff41;
   overflow: hidden;
   white-space: nowrap;
   border-right: 2px solid #00ff41;
@@ -45,11 +45,11 @@ h1 {
   margin: 0 auto;
   text-align: center;
   animation:
-    typing 2.5s steps(50, end) forwards,
+    typing 3s steps(60, end) forwards,
     blink-caret 0.75s step-end infinite;
 }
 
-/* Animation */
+/* Typing animation */
 @keyframes typing {
   from { width: 0 }
   to { width: 100% }
@@ -59,6 +59,7 @@ h1 {
   from, to { border-color: transparent }
   50% { border-color: #00ff41; }
 }
+
 
 /* ✅ Input animé */
 input[type="text"] {
@@ -189,7 +190,12 @@ button:hover {
     font-size: 2rem;
     white-space: normal;
     width: 100%;
-    animation: none;
-    border-right: none;
+    animation: typing-mob 3.2s steps(60, end) forwards, blink-caret 0.75s step-end infinite;
+    border-right: 2px solid #00ff41;
+  }
+
+  @keyframes typing-mob {
+    from { width: 0 }
+    to { width: 100% }
   }
 }

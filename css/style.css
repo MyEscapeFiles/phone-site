@@ -36,24 +36,25 @@ canvas#matrix {
 h1 {
   font-family: 'VT323', monospace;
   font-size: 3rem;
-  text-shadow: 0 0 4px #00ff41, 0 0 8px #00ff41, 0 0 20px #00ff41;
   color: #00ff41;
-  text-align: center;
+  text-shadow: 0 0 8px #00ff41;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid #00ff41;
+  width: 0;
   margin: 0 auto;
-  padding: 0 10px;
-  max-width: 100%;
-  word-wrap: break-word;
-  white-space: normal;
-  line-height: 1.2;
+  text-align: center;
+  animation:
+    typing 2.5s steps(50, end) forwards,
+    blink-caret 0.75s step-end infinite;
 }
 
-/* ✅ Animation de frappe */
+/* Animation */
 @keyframes typing {
   from { width: 0 }
   to { width: 100% }
 }
 
-/* ✅ Curseur qui clignote */
 @keyframes blink-caret {
   from, to { border-color: transparent }
   50% { border-color: #00ff41; }
@@ -186,7 +187,9 @@ button:hover {
 @media screen and (max-width: 500px) {
   h1 {
     font-size: 2rem;
-    padding: 0 15px;
+    white-space: normal;
+    width: 100%;
+    animation: none;
+    border-right: none;
   }
 }
-

@@ -36,17 +36,15 @@ canvas#matrix {
 h1 {
   font-family: 'VT323', monospace;
   font-size: 3rem;
+  text-shadow: 0 0 4px #00ff41, 0 0 8px #00ff41, 0 0 20px #00ff41;
   color: #00ff41;
-  text-shadow: 0 0 10px #00ff41;
-  overflow: hidden;
-  white-space: nowrap;
-  border-right: 2px solid #00ff41;
-  width: 0;
-  animation:
-    typing 2.5s steps(40, end) forwards,
-    blink-caret 0.75s step-end infinite;
   text-align: center;
   margin: 0 auto;
+  padding: 0 10px;
+  max-width: 100%;
+  word-wrap: break-word;
+  white-space: normal;
+  line-height: 1.2;
 }
 
 /* ✅ Animation de frappe */
@@ -60,15 +58,6 @@ h1 {
   from, to { border-color: transparent }
   50% { border-color: #00ff41; }
 }
-
-/* ✅ Responsive mobile */
-@media screen and (max-width: 500px) {
-  h1 {
-    font-size: 2rem;
-    animation: typing 2s steps(30, end) forwards, blink-caret 0.75s step-end infinite;
-  }
-}
-
 
 /* ✅ Input animé */
 input[type="text"] {
@@ -193,3 +182,11 @@ button:hover {
     max-width: 300px;
   }
 }
+
+@media screen and (max-width: 500px) {
+  h1 {
+    font-size: 2rem;
+    padding: 0 15px;
+  }
+}
+
